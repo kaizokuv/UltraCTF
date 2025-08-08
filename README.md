@@ -38,13 +38,9 @@ alias ultractf='(cd ~/UltraCTF && python main.py)'
 ### For fish shell
 
 function ultractf
-  
   pushd ~/UltraCTF > /dev/null (Change the file path here if you want to set a custom file path)
-  
   python main.py
-  
   popd > /dev/null
-
 end
 
 ### For zsh shell
