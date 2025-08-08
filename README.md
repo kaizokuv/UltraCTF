@@ -30,18 +30,18 @@ So behold the second of many repos to come about my progress and improvement. If
 Here are some aliases you guys can use for your terminal shells (bash, fish, zsh) to simplify calling the tool. Mind you you will still need to clone the repo first, and this is assuming you cloned the repo into your desktop and not a file. The alias will cd in a subshell so that once you're done using the tool, you'll go back to your original directory.
 
 For bash shell
-- alias ultractf='(cd ~/UltraCTF && python main.py)'
-  (Change '~/UltraCTF' to the set file path if you want to set a custom file path)
+alias ultractf='(cd ~/UltraCTF && python main.py)'
+(Change '/UltraCTF' to the set file path if you want to set a custom file path)
 
 For fish shell
-- function ultractf
-    pushd ~/UltraCTF > /dev/null (Change the file path here if you want to set a custom file path)
-    python main.py
-    popd > /dev/null
+function ultractf
+  pushd ~/UltraCTF > /dev/null (Change the file path here if you want to set a custom file path)
+  python main.py
+  popd > /dev/null
 end
 
 For zsh shell
-- alias ultractf='(cd ~/UltraCTF && python main.py)'
-  (Change '~/UltraCTF' to the set file path if you want to set a custom file path)
+alias ultractf='(cd ~/UltraCTF && python main.py)'
+(Change '/UltraCTF' to the set file path if you want to set a custom file path)
 
 Thank you for using my tools :D
