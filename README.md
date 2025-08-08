@@ -49,7 +49,7 @@ function ultractf
     popd > /dev/null
 end
 ```
-Change the file path here if you want to set a custom file path
+Change '~/UltraCTF' to the desired file path if you want to set a custom file path
 
 
 # Thank you for using my tools :D
