@@ -22,9 +22,11 @@ The idea of this came from a CTF me and my mates went to in the past. My friend 
 So behold the second of many repos to come about my progress and improvement. If anyone who sees this has any tips, ideas or comments, just lemme know, all feedback is much appreciated.
 
 ## How to run
-- git clone https://github.com/kaizokuv/UltraCTF.git
-- cd UltraCTF
-- python3 main.py
+```bash
+git clone https://github.com/kaizokuv/UltraCTF.git
+cd UltraCTF
+python3 main.py
+```
 
 ## For those of you who are lazy and willing to tweak around with aliases
 Here are some aliases you guys can use for your terminal shells (bash, fish, zsh) to simplify calling the tool. 
