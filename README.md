@@ -12,6 +12,14 @@ A Python-based CLI tool that's used for CTFs, whether you're a beginner or an ad
   - Base32 Encoding/Decoding
   - Base58 Encoding/Decoding
   - Base64 Encoding/Decoding
+- Cryptography (WIP)
+  - Hash Generator [MD5, SHA1, SHA256, SHA512] (Completed)
+  - ROT13 (Completed)
+  - XOR [ASCII/Hex Inputs With Given Fixed Key] (Currently WIP)
+  - Caeser Cipher Brute Force
+  - Atbash Cipher
+  - Single-Byte XOR Brute Force
+  - Morse Code Encode/Decode
 - More to come :D
 
 ## Why this exists
@@ -44,9 +52,9 @@ Change '~/UltraCTF' to the desired file path if you want to set a custom file pa
 ### For fish shell
 ```bash
 function ultractf
-    pushd ~/UltraCTF > /dev/null
-    python main.py
-    popd > /dev/null
+  pushd ~/UltraCTF > /dev/null
+  python main.py
+  popd > /dev/null
 end
 ```
 Change '~/UltraCTF' to the desired file path if you want to set a custom file path
