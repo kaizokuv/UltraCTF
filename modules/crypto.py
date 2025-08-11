@@ -86,38 +86,28 @@ def menu():
                         xor_ascii_string = input("Enter ASCII string: ")
                         xor_ascii_key = input("Enter key: ")
                         print("")
-                        print("1. Encrypt")
-                        print("2. Decrypt")
+                        xor_ascii = xor_crypt_ascii(xor_ascii_string, xor_ascii_key)
+                        try:
+                            print(f"XOR (ASCII): {xor_ascii.decode()}")
+                        except UnicodeDecodeError:
+                            print("XOR (ASCII): The XORed characters are not printable")
+                        print(f"XOR (hex): {xor_ascii.hex()}")
                         print("")
-                        xor_ascii_choice = input("Select to convert: ")
-
-                        match xor_ascii_choice:
-                            case "1":
-                                ascii_encrypted = xor_crypt_ascii(xor_ascii_string, xor_ascii_key)
-                                print(f"Encrypted XOR: {ascii_encrypted}")
-                                print("")
-                            case "2":
-                                ascii_decrypted = xor_crypt_ascii(xor_ascii_string, xor_ascii_key)
-                                print(f"Decrypted XOR: {ascii_decrypted}")
-                                print("")
                     case "2":
                         xor_hex_string = input("Enter hex string: ")
                         xor_hex_key = input("Enter key: ")
                         print("")
-                        print("1. Encrypt")
-                        print("2. Decrypt")
+                        try:
+                            xor_hex = xor_crypt_hex(xor_hex_string, xor_hex_key)
+                        except ValueError:
+                            print("Please provide a valid hex string")
+                            break
+                        try:
+                            print(f"XOR (ASCII): {xor_hex.decode()}")
+                        except UnicodeDecodeError:
+                            print("XOR (ASCII): The XORed characters are not printable")
+                        print(f"XOR (hex): {xor_hex.hex()}")
                         print("")
-                        xor_hex_choice = input("Select to convert: ")
-
-                        match xor_hex_choice:
-                            case "1":
-                                hex_encrypted = xor_crypt_hex(xor_hex_string, xor_hex_key)
-                                print(f"Encrypted XOR: {hex_encrypted}")
-                                print("")
-                            case "2":
-                                hex_decrypted = xor_crypt_hex(xor_hex_string, xor_hex_key)
-                                print(f"Decrypted XOR: {hex_decrypted}")
-                                print("")
                     case _:
                         print("Please select a valid option")
                         print("")
@@ -135,10 +125,10 @@ def menu():
                 print("Please select a valid option")
                 print("")
 
-def xor_crypt_ascii(data: str, key: str) -> str:
-    return ''.join(chr(ord(c) ^ ord(key[i % len(key)])) for i, c in enumerate(data))
+def xor_crypt_ascii(data: str, key: str) -> bytes:
+    return bytes([ord(c) ^ ord(key[i % len(key)]) for i, c in enumerate(data)])
 
-def xor_crypt_hex(data: str, key: str) -> str:
+def xor_crypt_hex(data: str, key: str) -> bytes:
     raw = bytes.fromhex(data)
     xored = bytes([b ^ ord(key[i % len(key)]) for i, b in enumerate(raw)])
-    return xored.hex()
+    return xored
