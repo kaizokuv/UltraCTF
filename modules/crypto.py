@@ -114,6 +114,18 @@ def menu():
             case "4":
                 print("")
             case "5":
+                atbash_input = input("Enter text: ")
+                atbash_output = []
+                for char in atbash_input:
+                    if char.isalpha():
+                        if char.isupper():
+                            atbash_output.append(chr(ord('Z') - (ord(char) - ord('A'))))
+                        else:
+                            atbash_output.append(chr(ord('z') - (ord(char) - ord('a'))))
+                    else:
+                        atbash_output.append(char)
+                atbash_final = ''.join(atbash_output)
+                print(f"Atbashed: {atbash_final}")
                 print("")
             case "6":
                 print("")
