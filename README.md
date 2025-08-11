@@ -16,7 +16,7 @@ A Python-based CLI tool that's used for CTFs, whether you're a beginner or an ad
   - Hash Generator [MD5, SHA1, SHA256, SHA512] (Completed)
   - ROT13 (Completed)
   - XOR [ASCII/Hex inputs with use given keys] (Completed)
-  - Caeser Cipher Brute Force
+  - Caeser Cipher Brute Force (WIP)
   - Atbash Cipher
   - Single-Byte XOR Brute Force
   - Morse Code Encode/Decode
