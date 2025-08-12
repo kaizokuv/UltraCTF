@@ -1,6 +1,6 @@
 # UltraCTF
 
-A Python-based CLI tool that's used for CTFs, whether you're a beginner or an advanced CTFer, I do hope this tool is of good use to you :D
+A Python-based CLI tool that's used for CTFs and works offline, whether you're a beginner or an advanced CTFer, I do hope this tool is of good use to you :D
 
 ## Current Features
 - Base Conversions
@@ -12,20 +12,28 @@ A Python-based CLI tool that's used for CTFs, whether you're a beginner or an ad
   - Base32 Encoding/Decoding
   - Base58 Encoding/Decoding
   - Base64 Encoding/Decoding
-- Cryptography (WIP)
-  - Hash Generator [MD5, SHA1, SHA256, SHA512] (Completed)
-  - ROT13 (Completed)
-  - XOR [ASCII/Hex inputs with use given keys] (Completed)
-  - Caeser Cipher Brute Force (WIP)
-  - Atbash Cipher (Completed)
+- Cryptography
+  - Hash Generator [MD5, SHA1, SHA256, SHA512]
+  - ROT13
+  - XOR [ASCII/Hex inputs with use given keys]
+    - Gives the user the option to use ACSII or hex strings inputs
+    - Keys can be in the form of ASCII, hex or single-bytes (WIP: single-byte inputs)
+  - Caeser Cipher Brute Force
+    - Brute forces through all 26 possible shifts
+  - Atbash Cipher 
   - Single-Byte XOR Brute Force
-  - Morse Code Encode/Decode
+    - Brute force with all 256 single-byte keys
+    - If you do have the key, you can input it
+  - Morse Code
+- Steganography (WIP)
 - More to come :D
 
 ## Why this exists
 The second of many random posts that track my progress as a programmer. This time a more serious project with a proper idea and drive in mind.
 
 The idea of this came from a CTF me and my mates went to in the past. My friend who didn't do any CTFs before struggled, so thinking back to back then I figured a tool that could help beginners carve a path for themselves, and him especially, would be quite useful.
+
+This tool also came to idea with CyberChef by gchq on Github (go check it out, it's an amazing tool at https://github.com/gchq/CyberChef), I wanted to make my own offline version that could be run offline, since as far as I knew, CyberChef could not be run offline. It may not be as feature rich, but it does work and I'm working to add more tools.
 
 So behold the second of many repos to come about my progress and improvement. If anyone who sees this has any tips, ideas or comments, just lemme know, all feedback is much appreciated.
 

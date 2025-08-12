@@ -20,9 +20,9 @@ def mainmenu():
     print("--- Main Menu ---")
     print("")
     print("1. Base Conversions")
-    print("2. Cryptography (WIP)")
-    print("3. Binary/File Analysis (WIP)")
-    print("4. Steganography (WIP)")
+    print("2. Cryptography")
+    print("3. Steganography (WIP)")
+    print("4. Binary/File Analysis (WIP)")
     print("5. Exit")
     print("")
 
@@ -38,9 +38,9 @@ def main():
             case "2":
                 crypto.menu()
             case "3":
-                bfa.menu()
-            case "4":
                 stego.menu()
+            case "4":
+                bfa.menu()
             case "5":
                 print("Thank you, please come again")
                 print("Any ideas for future updates are welcome, hmu on Github :D")
