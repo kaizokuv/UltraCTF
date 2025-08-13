@@ -25,6 +25,24 @@ A Python-based CLI tool that's used for CTFs and works offline, whether you're a
     - Brute force with all 256 single-byte keys
     - If you do have the key, you can input it
   - Morse Code
+  - Normal Substitution (Only Letters)
+    - Takes any printable ASCII characters but will only scramble the letters with given values
+    - Any non-ASCII characters will flag an error
+    - Uppercased letters will stay uppercased, same for lowercased letters
+    - When reversing, if you have the pattern, it'll auto reverse the pattern for you
+      - For example if you scrambled 'beans' with the pattern '+5, -4' and you want to reverse, you can put in the same pattern and the program will reverse it for you to '-5, +4'
+    - If the pattern is shorter than the text, the pattern will repeat
+      - For example the word 'beans' with the pattern '+5,-4' will give the output for 'b +5, e -4, a +5, n -4,s -5', which will be 'gafjx' 
+    - For example 'flag{beans}' with the pattern '+1, -14, +7, -5, +12' will give you 'gXhb{cQhiE}'
+  - Custom Substitution (Printable ASCII Range)
+    - Takes any printable ASCII characters and scrambles them
+    - Any non-ASCII characters will flag an error
+    - Uppercased letters will stay uppercased, same for lowercased letters
+    - When reversing, if you have the pattern, it'll auto reverse the pattern for you
+      - For example if you scrambled 'b3ans' with the pattern '+5, -4' and you want to reverse, you can put in the same pattern and the program will reverse it for you to '-5, +4'
+    - If the pattern is shorter than the text, the pattern will repeat
+      - For example the word 'b3ans' with the pattern '+5,-4' will give the output for 'b +5, 3 -4, a +5, n -4,s -5', which will be 'g (enter) fjx' 
+    - For example 'flag{beans}' with the pattern '+1, -14, +7, -5, +12' will give you 'g7hb5c0hiE~'
 - Steganography (WIP)
 - More to come :D
 

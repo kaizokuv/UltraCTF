@@ -1,6 +1,7 @@
 import hashlib
 import codecs
 import collections
+import string
 
 def menu():
     while True:
@@ -13,7 +14,9 @@ def menu():
         print("5. Atbash Cipher")
         print("6. Single-Byte XOR Brute Force")
         print("7. Morse Code")
-        print("8. Back to main menu")
+        print("8. Normal Substitution (Only Letters)")
+        print("9. Custom Substitution (Printable ASCII Range)")
+        print("10. Back to main menu")
         print("")
         q3 = input("Choose your needs: ")
         print("")
@@ -195,7 +198,6 @@ def menu():
                             print(f"The plaintext with the given key {key} (0x{key:02x}) is: {decoded_str}")
                             print("")
             case "7":
-                print("")
                 print("1. Encrypt with Morse Code")
                 print("2. Decrypt with Morse Code")
                 print("")
@@ -237,6 +239,75 @@ def menu():
                         print("Please select a valid option")
                         print("")
             case "8":
+                print("1. Encrypt with Substitution")
+                print("2. Decrypt with Substitution")
+                print("")
+                substitution_choice = input("Select to convert: ")
+                print("")
+
+                match substitution_choice:
+                    case "1":
+                        substitution_input = input("Enter text: ")
+                        if not all(char in PRINTABLE for char in substitution_input):
+                            print("")
+                            print("Please enter valid ASCII characters")
+                            print("")
+                        else:
+                            raw_substitution_pattern = input("Input pattern (e.g. format: +1, -14, +7, -5, +12): ")
+                            print("")
+                            substitution_pattern = [int(x) for x in raw_substitution_pattern.replace(" ", "").split(",")]
+                            print("Substituted text:", substitute(substitution_input, substitution_pattern))
+                            print("")
+                    case "2":
+                        reverse_input = input("Enter substituted text: ")
+                        if not all(char in PRINTABLE for char in reverse_input):
+                            print("")
+                            print("Please enter valid ASCII characters")
+                            print("")
+                        else:
+                            raw_reverse_substitution_pattern = input("Input pattern (e.g. format: +1, -14, +7, -5, +12): ")
+                            reverse_pattern = [int(x) for x in raw_reverse_substitution_pattern.replace(" ", "").split(",")]
+                            print("Original text:", reverse_substitute(reverse_input, reverse_pattern))
+                            print("")
+                    case _:
+                        print("Please select a valid option")
+                        print("")
+            case "9":
+                print("1. Encrypt with Substitution")
+                print("2. Decrypt with Substitution")
+                print("")
+                custom_substitution_printable_choice = input("Select to convert: ")
+                print("")
+
+                match custom_substitution_printable_choice:
+                    case "1":
+                        custom_substitution_printable_input = input("Enter text: ")
+                        if not all(char in PRINTABLE for char in custom_substitution_printable_input):
+                            print("")
+                            print("Please enter valid ASCII characters")
+                            print("")
+                        else:
+                            raw_custom_substitution_printable_pattern = input("Input pattern (e.g. format: +1, -14, +7, -5, +12): ")
+                            print("")
+                            custom_substitution_printable_pattern = [int(x) for x in raw_custom_substitution_printable_pattern.replace(" ", "").split(",")]
+                            print("Substituted text:", custom_substitution_printable(custom_substitution_printable_input, custom_substitution_printable_pattern))
+                            print("")
+                    case "2":
+                        reversed_custom_substitution_printable_input = input("Enter text: ")
+                        if not all(char in PRINTABLE for char in reversed_custom_substitution_printable_input):
+                            print("")
+                            print("Please enter valid ASCII characters")
+                            print("")
+                        else:
+                            reversed_raw_custom_substitution_printable_pattern = input("Input pattern (e.g. format: +1, -14, +7, -5, +12): ")
+                            print("")
+                            reversed_custom_substitution_printable_pattern = [int(x) for x in reversed_raw_custom_substitution_printable_pattern.replace(" ", "").split(",")]
+                            print("Original text:", reverse_custom_substitution_printable(reversed_custom_substitution_printable_input, reversed_custom_substitution_printable_pattern))
+                            print("")
+                    case _:
+                        print("Please select a valid option")
+                        print("")
+            case "10":
                 break
             case _:
                 print("Please select a valid option")
@@ -319,3 +390,39 @@ morse_code_reverse_def = {
     '.-.-.': '+', '-....-': '-', '..--.-': '_', '.-..-.': '"',
     '...-..-': '$', '.--.-.': '@'
 }
+
+ALPHA_ONLY = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+PRINTABLE = "".join(ch for ch in string.printable if ch not in "\n\r\t")
+
+def substitute(text, pattern):
+    return pattern_cipher(text, pattern, mode="alpha", reverse=False)
+
+def reverse_substitute(text, pattern):
+    return pattern_cipher(text, pattern, mode="alpha", reverse=True)
+
+def custom_substitution_printable(text, pattern):
+    return pattern_cipher(text, pattern, mode="ascii", reverse=False)
+
+def reverse_custom_substitution_printable(text, pattern):
+    return pattern_cipher(text, pattern, mode="ascii", reverse=True)
+
+def pattern_cipher(text, pattern, mode="alpha", reverse=False):
+    if mode == "alpha":
+        charset = ALPHA_ONLY
+    elif mode == "ascii":
+        charset = PRINTABLE
+    else:
+        raise ValueError("Please enter valid ASCII characters")
+    if reverse:
+        pattern = [-p for p in pattern]
+    result = []
+    pat_len = len(pattern)
+    for i, ch in enumerate(text):
+        if ch in charset:
+            idx = charset.index(ch)
+            shift = pattern[i % pat_len]
+            new_idx = (idx + shift) % len(charset)
+            result.append(charset[new_idx])
+        else:
+            result.append(ch)
+    return "".join(result)

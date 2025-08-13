@@ -1,7 +1,5 @@
 import base64
 
-BASE58_ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-
 def menu():
     while True:
         print("--- Base Conversions ---")
@@ -333,6 +331,8 @@ def base32_decode(text):
         return base64.b32decode(text.encode()).decode(errors="replace")
     except Exception:
         return "Invalid Base32 string."
+    
+BASE58_ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
 def base58_encode(text):
     try:
