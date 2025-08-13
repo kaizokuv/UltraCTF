@@ -43,7 +43,6 @@ A Python-based CLI tool that's used for CTFs and works offline, whether you're a
     - If the pattern is shorter than the text, the pattern will repeat
       - For example the word 'b3ans' with the pattern '+5,-4' will give the output for 'b +5, 3 -4, a +5, n -4,s -5', which will be 'g (enter) fjx' 
     - For example 'flag{beans}' with the pattern '+1, -14, +7, -5, +12' will give you 'g7hb5c0hiE~'
-- Steganography (WIP)
 - More to come :D
 
 ## Why this exists
