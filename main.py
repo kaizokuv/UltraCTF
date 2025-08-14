@@ -1,4 +1,4 @@
-from modules import bc, crypto, bfa, stego
+from modules import bc, crypto
 
 print("")
 print(" █    ██  ██▓  ▄▄▄█████▓ ██▀███   ▄▄▄       ▄████▄  ▄▄▄█████▓  █████▒")
@@ -21,8 +21,6 @@ def mainmenu():
     print("")
     print("1. Base Conversions")
     print("2. Cryptography")
-#    print("3. Steganography (WIP)")
-#    print("4. Binary/File Analysis (WIP)")
     print("3. Exit")
     print("")
 
@@ -37,10 +35,6 @@ def main():
                 bc.menu()
             case "2":
                 crypto.menu()
-#            case "3":
-#                stego.menu()
-#            case "4":
-#                bfa.menu()
             case "3":
                 print("Thank you, please come again")
                 print("Any ideas for future updates are welcome, hmu on Github :D")
